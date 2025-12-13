@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: course-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: course-app
@@ -13,8 +13,8 @@ spec:
         app: course-app
     spec:
       containers:
-      - name: course-app
-        image: ashwini964/course-app:1
-        ports:
-        - containerPort: 8080
-
+        - name: course-app
+          image: ashwini964/course-app:1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
